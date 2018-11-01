@@ -1,0 +1,4 @@
+cron:
+    - description: "Cron Job"
+      url: /page_speed
+      schedule: every 24 hours
