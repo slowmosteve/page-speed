@@ -14,6 +14,10 @@ The key components in this application are as follows:
 ## Pub/Sub to BigQuery Cloud Function
 - This is a Google Cloud Function that is triggered by the Pub/Sub topic and pushes data to BigQuery
 
+
+![App architecture](https://github.com/slowmosteve/page-speed/blob/master/images/page-speed-app.png)
+
+
 ## References
 - Pub/Sub Python client library https://googleapis.github.io/google-cloud-python/latest/pubsub/index.html
 - Example of sending data from Pub/Sub to BigQuery https://medium.com/devopslinks/writing-a-pub-sub-stream-to-bigquery-401b44c86bf
