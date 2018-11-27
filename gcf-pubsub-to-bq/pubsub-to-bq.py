@@ -14,7 +14,7 @@ def pubsub_bq_insert(event, context):
     stream = base64.urlsafe_b64decode(raw_data)
     decoded_stream = base64.urlsafe_b64decode(stream)
     pubsub_message = json.loads(decoded_stream)
-    print("data to insert :"+str(pubsub_message))
+    print("data to insert: "+str(pubsub_message))
 
     client = bigquery.Client()
     dataset_id = 'page_speed_reports'
