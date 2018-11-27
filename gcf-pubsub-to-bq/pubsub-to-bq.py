@@ -2,17 +2,11 @@ import base64
 import json
 from google.cloud import bigquery
 
-dataset_id = 'page_speed_reports'
-table_id = 'reports'
-
-def pubsub_bq_insert(event, dataset, table):
-    """Cloud function triggered from a message on a Cloud Pub/Sub topic.
-    Decodes data payload from message and inserts into BigQuery table.
-
+def pubsub_bq_insert(event, context):
+    """Triggered from a message on a Cloud Pub/Sub topic.
     Args:
-        event (dict): Event payload.
-        dataset: BigQuery dataset id
-        table: BigQuery table id
+         event (dict): Event payload.
+         context (google.cloud.functions.Context): Metadata for the event.
     """
     print("event: "+str(event))
     print("context: "+str(context))
@@ -23,6 +17,8 @@ def pubsub_bq_insert(event, dataset, table):
     print("data to insert :"+str(pubsub_message))
 
     client = bigquery.Client()
+    dataset_id = 'page_speed_reports'
+    table_id = 'reports'
     table_ref = client.dataset(dataset_id).table(table_id)
     table = client.get_table(table_ref)
 
